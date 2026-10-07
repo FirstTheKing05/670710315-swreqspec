@@ -97,6 +97,17 @@
 
 ---
 
+## 2569-10-07 08:35 คำสั่ง: /verify specs/001-booking/
+
+- ผล test: backend: 5 passed จาก 5; frontend: 1 passed จาก 1
+- จำนวนแถวในตารางไปข้างหน้า: ครบ 4, ยังไม่ถึง 4, รอ Q-xx 1, ช่องโหว่ 6
+- ข้อค้นพบใหม่: F-01, F-02, F-03, F-04, F-05, F-06, F-07, F-08
+- ส่วนที่แก้แล้ว: F-02 (ป้องกัน duplicate booking same-day) ผ่าน `backend/tests/test_AC_BKG_02.py` และ `cd backend && pytest -v`
+- รายงานสรุป: ระบบยังไม่ครบตาม whole booking spec เพราะ FR-BKG-03, FR-BKG-05, FR-BKG-06, NFR-REL-02, DOM-PDPA-01, IF-HIS-01 และ IF-NOT-01 ยังไม่มี proof ที่ตรงกับ Acceptance Criteria และ Q-02 ยังคงเป็น blocker สำหรับ queue_no ที่แท้จริง
+- ข้อสรุป: "ข้อค้นพบทั้งหมด AI เป็นคนตรวจ และอาจหาไม่ครบ ทีมต้องเปิดโค้ดและ spec ยืนยันทีละข้อ แล้วเขียนช่อง 'ทีมตัดสิน' เอง"
+
+---
+
 ## 2569-10-07 10:05 คำสั่ง: /testcases AC-BKG-02 specs/001-booking/
 
 - โหมด: ร่าง
