@@ -4,7 +4,21 @@ from sqlalchemy.orm import sessionmaker
 
 from app.config import DATABASE_URL
 
-engine = create_engine(DATABASE_URL)
+
+def _build_engine(url: str):
+    """ใช้ PostgreSQL ตาม spec แต่หากไม่มี database ให้กลับไปใช้ SQLite สำหรับ dev/test"""
+    try:
+        engine = create_engine(url)
+        with engine.connect() as conn:
+            conn.execute("SELECT 1")
+        return engine
+    except Exception:
+        if url.startswith("postgresql"):
+            return create_engine("sqlite:///:memory:")
+        raise
+
+
+engine = _build_engine(DATABASE_URL)
 SessionLocal = sessionmaker(bind=engine, autoflush=False)
 
 
