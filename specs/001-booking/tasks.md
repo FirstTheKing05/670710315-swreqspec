@@ -78,7 +78,7 @@
 - ไฟล์ที่แตะ: frontend/src/pages/SlotPicker.jsx, frontend/src/App.jsx, frontend/src/api/client.js
 - ต้องทำหลัง: ไม่มี
 - เสร็จเมื่อ: ผู้ใช้เลือกแพ็กเกจ และหน้าจอแสดงช่วงเวลาว่างพร้อมจำนวนที่นั่งคงเหลือ โดยใช้ API จำลองตามสัญญาใน plan.md
-- สถานะ: พร้อมทำ
+- สถานะ: เสร็จ รอทีมตรวจ
 
 ### T-10 สร้างหน้้ายืนยันและแสดงช่วงเวลาเต็มพร้อม 3 ตัวเลือก
 - รองรับ: FR-BKG-03, FR-BKG-04
@@ -102,6 +102,22 @@
 - ไฟล์ที่แตะ: frontend/src/api/client.js, frontend/src/App.jsx, frontend/src/pages/*
 - ต้องทำหลัง: T-02, T-05, T-06, T-09, T-10, T-11
 - เสร็จเมื่อ: frontend เชื่อมต่อกับ API จริงผ่าน /api ได้โดยไม่มีปัญหา integration และ smoke test ของ flow การจองทำงานครบตามสัญญา
+- สถานะ: พร้อมทำ
+
+### T-13 ต่อหน้าเลือกช่วงเวลากับ GET /slots จริง
+- รองรับ: FR-BKG-01, FR-BKG-06
+- ตรวจด้วย: ไม่มี AC ตรง ๆ เป็นงานพื้นฐานของ T-13
+- ไฟล์ที่แตะ: frontend/src/pages/SlotPicker.jsx, frontend/src/App.jsx, frontend/vite.config.js
+- ต้องทำหลัง: T-02, T-09
+- เสร็จเมื่อ: หน้าจอเลือกช่วงเวลาเรียก GET /slots ผ่าน /api จริง และแสดงข้อมูลช่วงเวลาตัวอย่างจากฐานข้อมูล โดยไม่มีการใช้ mock data
+- สถานะ: เสร็จ รอทีมตรวจ
+
+### T-14 ต่อหน้ายืนยันกับ POST /bookings จริง
+- รองรับ: FR-BKG-03, FR-BKG-04
+- ตรวจด้วย: AC-BKG-03, AC-BKG-01
+- ไฟล์ที่แตะ: frontend/src/pages/ConfirmBooking.jsx, frontend/src/App.jsx, frontend/src/api/client.js
+- ต้องทำหลัง: T-03, T-05, T-11
+- เสร็จเมื่อ: หน้ายืนยันส่ง POST /bookings ไปยัง backend จริง และสามารถเห็นผลตอบกลับจากการจองที่มีข้อมูลจริง
 - สถานะ: พร้อมทำ
 
 ## ตารางตรวจความครบ
